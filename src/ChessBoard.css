@@ -1,0 +1,145 @@
+/* Chess Board CSS Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.chess-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #8a9ea7 0%, #3d5564 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.turn-indicator {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.chess-board {
+  display: flex;
+  flex-direction: column;
+  border: 15px solid #6e4a2b;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.row {
+  display: flex;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.square.white {
+  background-color: #f0d9b5;
+}
+
+.square.black {
+  background-color: #b58863;
+}
+
+/* Selected square styling */
+.square.selected {
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 0, 0.7);
+  transform: scale(1.05);
+  z-index: 20;
+}
+
+.piece {
+  font-size: 40px;
+  line-height: 60px;
+  text-align: center;
+  user-select: none;
+}
+
+/* White pieces on black squares */
+.square.black .piece {
+  color: #f0d9b5;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Black pieces on white squares */
+.square.white .piece {
+  color: #5c3d21;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Add a subtle hover effect */
+.square:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* For smaller screens */
+@media (max-width: 600px) {
+  .square {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .piece {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  
+  .turn-indicator {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+}
+
+/* For even smaller screens */
+@media (max-width: 400px) {
+  .square {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .piece {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  
+  .turn-indicator {
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+  }
+} 
